@@ -103,6 +103,63 @@ function inputGenres(){
 inputGenres();
 
 
+// Callback - functions 
+
+function learnJS(lang, callback){
+   console.log(`Я учу ${lang}`);
+   callback();
+}
+
+learnJS('JavaScript', function(){
+   console.log('Я прошел этот урок!');
+}, 900);
+
+
+// Операторы Object
+
+const options = {
+   name: 'test',
+   width: 1024,
+   height: 720,
+   colors: {
+      border: 'black',
+      bg: 'red',
+   },
+   makeTest: function() {
+      console.log("Test");
+   }
+}
+
+delete options.name; // Удаляет первое свойство в об'екте
+console.log(options);
+let counter = 0;
+for (let key in options){
+   if (typeof(options[key]) === 'object') {
+      for (let i in options[key]){
+         console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+         counter++;
+      }
+   }
+
+   else {
+      console.log(`Свойство ${key} имеет значение ${options[key]}`); // Возвращает все ключ-значения в об'екте
+      counter++;
+   }
+   
+   
+}
+console.log(counter);
+
+console.log(Object.keys(options)); // Создает массив из ключей выбранного об'екта
+console.log(Object.keys(options).length); // Считает кол-во ключей об'екта
+
+options.makeTest();
+
+
+// Деструктуризация об'ектов 
+
+const {border, bg} = options.colors; // Позволяет нам вытащить свойство из вложенных об'ектов
+console.log(border); 
 
  
 
