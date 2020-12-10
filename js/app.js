@@ -1,6 +1,16 @@
  "use strict";
  let hello = alert("Hello!");
- let NumberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?","");
+ let NumberOfFilms;
+
+ function start(){
+    NumberOfFilms = prompt("Сколько фильмов вы уже посмотрели?","");
+
+    while (NumberOfFilms == '' || NumberOfFilms == null || isNaN(NumberOfFilms)){
+      NumberOfFilms = prompt("Сколько фильмов вы уже посмотрели?","");
+    }
+ }
+
+ start();
 
  let PersonalMovieDB = {
     count: NumberOfFilms,
@@ -12,25 +22,27 @@
 
  //  А теперь с помощью цикла for
 
- for (let i = 0; i < 2; i++){
-    const
-    a = prompt("Один из последних просмотреных фильмов?", ""),
-    b = +prompt("На сколько оцените его?", "");
-    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-       console.log('dates saved!');
-    }
-    else {
-       i--;
-    }
-    PersonalMovieDB.movies[a] = b;
-    
- }
+function rememberMyFilms(){
+   for (let i = 0; i < 2; i++){
+      const
+      a = prompt("Один из последних просмотреных фильмов?", ""),
+      b = +prompt("На сколько оцените его?", "");
+      if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+         console.log('dates saved!');
+      }
+      else {
+         i--;
+      }
+      PersonalMovieDB.movies[a] = b;
+      
+   }
+}
 
-
-
-
+rememberMyFilms();
 
  console.log(PersonalMovieDB);
+
+
 
 
  function ViewedFilms(){
@@ -65,12 +77,30 @@
  console.log(text.substring(14));
  console.log(text.substr(5, 8)); // Первый параметр указывает нам позицию, с которой мы начинаем вырезать текст, второй = кол-во символов, сколько мы хотим вырезать
 
-let num = 13.2;
-console.log(Math.round(num));
+let num1 = 13.2;
+console.log(Math.round(num1));
 
-let num = "15.5px";
-console.log(parseInt(num)); // округляет + преобразовует в число 
-console.log(parseFloat(num)); 
+let num2 = "15.5px";
+console.log(parseInt(num2)); // округляет + преобразовует в число 
+console.log(parseFloat(num2)); 
+
+function showMyDB(hidden){
+   if (!hidden){
+      console.log(PersonalMovieDB);
+   }
+}
+
+showMyDB(PersonalMovieDB.privat);
+
+
+function inputGenres(){
+   for (let i = 1; i <=3; i++){
+      const genre = prompt(`Ваш любимый жанр под номером ${i}`);
+      PersonalMovieDB.genres[i - 1] = genre;
+   }
+}
+
+inputGenres();
 
 
 
