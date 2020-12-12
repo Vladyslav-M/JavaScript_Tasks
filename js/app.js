@@ -238,18 +238,13 @@ const add = {
    }
 }
 
-const clone = Object.assign({}, add);
+const clone = Object.assign({}, add); // клонирует данные из add в clone
 clone['k'] = 33;
 clone['j']['x'] = 45;
 console.log(clone);
 console.log(add);
 
 
-let oldArray = ['Hello', 12, 66, 'reset'];
-let newArray = _.cloneDeep(oldArray);
-oldArray[1] = 50;  
-console.log(newArray);
-console.log(oldArray);
 
 // Spread метод
 
@@ -278,5 +273,39 @@ newObj['one'] = 0;
 newObj['two'] = 1;
 console.log(oldObj);
 console.log(newObj);
+
+// Об'ективно-ориентированное наследование
+
+const soldier = {
+   health: 400,
+   armor: 100,
+   sayHello: function(){
+      console.log("Hello");
+   },
+};
+
+const John = {
+   health: 100,
+};
+
+// John.__proto__ = soldier; // Это устаревший способ, его не рекоммендуется использовать
+// console.log(John.armor);
+
+Object.setPrototypeOf(John, soldier); // Устанавливает прототип soldier для John
+
+console.log(John.armor);
+
+
+const car = {
+   wheels: 4,
+   doors: 4,
+   trunk: true,
+}
+
+const myCar = Object.create(car); // Создает об'ект и присваевает ему car как "родительский" елемент
+console.log(myCar.wheels);
+
+
+
 
 
