@@ -161,6 +161,110 @@ options.makeTest();
 const {border, bg} = options.colors; // Позволяет нам вытащить свойство из вложенных об'ектов
 console.log(border); 
 
+
+// Массивы 
+let arr = [2, 5, 7, 12, 35, 4]
+
+arr.pop(); // Удаляет последний елемент в массиве
+arr.push(8); // Добавляет елемент 8 в конец массива
+console.log(arr);
  
 
 
+for (let i = 0; i < arr.length; i++){ // Перебираем все елементы в массиве
+   console.log(arr[i]);
+}
+
+for (let value of arr){
+   console.log(value);
+}
+
+
+arr.forEach(function(item, i, arr){   // item -елемент, который мы перебираем; i - номер по порядку; arr - ссылка на массив, который мы перебираем
+   console.log(`${item}: ${i} внутри массива ${arr}.`);
+});
+
+let mas = prompt("", "");
+let products = mas.split(", ");
+console.log(products.join('; '));
+mas.sort(); // Сортирует, как строки, числа по-алфавиту
+arr.sort();
+
+
+
+const firstObj = {
+   a: 10,
+   b: 15,
+}; 
+
+const firstObjCopy = firstObj;
+
+firstObjCopy.a = 20;
+console.log(firstObjCopy); // { a: 20, b: 15 } Идет передача по ссылке
+console.log(firstObj); // { a: 20, b: 15 }
+
+
+function copyObj(mainObj){
+   let CloneObj = {};
+   let key;
+   for (key in mainObj){
+      CloneObj[key] = mainObj[key];
+   }
+   return CloneObj;
+}
+
+const numbers = {
+   a: 10,
+   b: 4,
+   c: 6,
+   d: {
+      e: 5,
+      f: 17,
+   }
+}
+
+const copyNumbers = copyObj(numbers);
+copyNumbers['a'] = 7;
+copyNumbers['d']['f'] = 14;
+console.log(numbers);
+console.log(copyNumbers); // Произошло поверхностное копирование numbers
+
+const add = {
+   g: 53,
+   k: 124,
+   j: {
+      x: 77,
+      y: 61,
+   }
+}
+
+const clone = Object.assign({}, add);
+clone['k'] = 33;
+clone['j']['x'] = 45;
+console.log(clone);
+console.log(add);
+
+
+let oldArray = ['Hello', 12, 66, 'reset'];
+let newArray = _.cloneDeep(oldArray);
+oldArray[1] = 50;  
+console.log(newArray);
+console.log(oldArray);
+
+// Spread метод
+
+const browsers = ['Internet Explorer', 'Chrome', 'Firefox'],
+      blogs = ['wordpress', 'livejournal', 'blogger'],
+      internet = [...browsers, ...blogs, 'vk', 'facebook'];
+
+      console.log(internet);
+
+
+function log(a, b, c){
+   console.log(a);
+   console.log(b);
+   console.log(c);
+}      
+
+const threeParams = [2, 4, 6];
+log(...threeParams);
