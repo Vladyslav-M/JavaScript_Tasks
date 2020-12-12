@@ -268,3 +268,15 @@ function log(a, b, c){
 
 const threeParams = [2, 4, 6];
 log(...threeParams);
+
+const oldObj = {
+   one: 1,
+   two: 2,
+},
+newObj = {...oldObj}
+newObj['one'] = 0;
+newObj['two'] = 1;
+console.log(oldObj);
+console.log(newObj);
+
+
