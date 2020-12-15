@@ -1,4 +1,5 @@
  "use strict";
+
  let hello = alert("Hello!");
  let NumberOfFilms;
 
@@ -327,8 +328,30 @@ console.log("Ёжик" > "яблоко"); // false, смотреть табли�
 
 console.log(+"Infinity" + +"2");
 
+// Получение елементов со страницы
 
+let button = document.querySelector(".intro__btn");
+console.log(button);
 
+let links = document.getElementsByTagName("a");
+console.log(links);
+
+console.log(links[1]); // Выведет второй елемент массива links
+
+// Также мы не можем напрямую взаимодействовать с елементом массива, стилизовать его, даже если он один в массиве
+
+let circles = document.getElementsByClassName('circle');
+
+console.log(circles);
+
+let squares = document.querySelectorAll('.square'); // Внутрь помещается css - селектор, поддержиет id, class, вложенные елементы, псевдоелементы, лучше всего использовать именно 
+// эту комманду для получения елементов со страницы, также у него есть метод ForEach
+squares.forEach(item => {
+console.log(item);
+});
+
+let oneSquare = document.querySelector('.square'); // выводится первый елемент с html документа
+console.log(oneSquare);
 
 
 
