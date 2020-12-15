@@ -305,6 +305,29 @@ const car = {
 const myCar = Object.create(car); // Создает об'ект и присваевает ему car как "родительский" елемент
 console.log(myCar.wheels);
 
+console.log(false + [] - null + true);
+
+// Задачки на понимание
+
+let y = 1;
+let x = y = 2; // присваивание справа налево 
+console.log(x); // 2
+
+console.log([] + 2 + 1); // 21, пустой массив преобразовуется в строку
+
+console.log("Ivan Sasha Misha"[11]); // M
+
+console.log("1" && "2" && null && 0 && undefined); // null, && запинается на лжи
+
+console.log(!!(2 && 3) === (2 && 3)); // false, в первом случае будет ответ true, а во втором - 3
+
+console.log(null || 2 && 3 || "1" || undefined); // Ответ - 3. Также у И приоритет выше, чем у И
+
+console.log("Ёжик" > "яблоко"); // false, смотреть таблицу символов 0Юникода
+
+console.log(+"Infinity" + +"2");
+
+
 
 
 
